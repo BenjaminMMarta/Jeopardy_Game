@@ -1,0 +1,22 @@
+/* some colors you may find useful:
+  #115ff4
+  #060ce9
+  #28a200
+  #8d2ab5
+  #74119c
+*/
+
+header {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+button {
+  height: 35px;
+  width: 125px;
+}
