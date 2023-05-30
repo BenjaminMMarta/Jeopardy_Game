@@ -8,25 +8,24 @@ const $jeopardyBoard = $('#jeopardy');
 const $spinnerContainer = $('#spin-container');
 // Empty Array. Category Id's Pushed Here From "getRandomCategoryIds" Function.
 let categories = [];
-// Question Mark Displayed in Jeopardy Gameoard Cell.
-let questionMark = "?";
 
 //------------------------------------------/* Create Jepardy Gameboard With API Data. */-------------------------------------------------//
 
 // "Click" Event listener On "Start!" / "Restart Game!" Button.
 $startButton.on('click', async function setupAndStart (event) {
   event.preventDefault();
-  const getCategories = await axios.get('http://jservice.io/api/categories?count=100');
-  for (let data of getCategories.data) { 
-    let categoryIds = data.id
-    let categoryTitle = data.title;
-    let categoryQuestions = data.question;
-    let categoryAnswers = data.answer;
-    categories.push(categoryTitle);
+  const getCategories = await axios.get('http://jservice.io/api/categories?count=6');
+
+  for (let data of getCategories.data) {
+    const getQuestions = await axios.get('https://jservice.io/api/clues?count=5'); //+ categoryId
+    //const categoryId = data.id 
+    //console.log(getQuestions);
+    categories.push(getQuestions);
   }
+  
   randomCategoryIds(categories);
   hideLoadingView();
-  console.log(categories.slice(0,6));
+  console.log(categories);
 });
 
 //---------------------------------------------/* Shuffle Category Id Numbers */--------------------------------------------------//
