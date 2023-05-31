@@ -55,6 +55,7 @@ async function setupJeopardyGame (event) {
   //Get Categories from API.
   const getCategories = await axios.get('http://jservice.io/api/categories?count=100');
   let categories = selectSixRandomCategories(getCategories.data);
+  categoriesGlobal = categories
   for (let cat of categories) {
     let category = await getCategory(cat.id);
     questions[category.title] = category.questions
