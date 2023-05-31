@@ -1,11 +1,3 @@
-/* some colors you may find useful:
-  #115ff4
-  #060ce9
-  #28a200
-  #8d2ab5
-  #74119c
-*/
-
 header {
   display: flex;
   flex-direction: column;
@@ -34,6 +26,7 @@ button {
   color: white;
   border-collapse: collapse;
 }
+
 th{
   text-transform: uppercase;
   font-family: Helvetica, sans-serif;
